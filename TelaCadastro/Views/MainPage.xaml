@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TelaCadastro.MainPage"
+              Title="Cadastro Locatário">
+
+
+    <!-- Layout principal com Scroll -->
+    <ScrollView >
+        <HorizontalStackLayout Style="{StaticResource Espacamento}">
+
+            <!-- ==================== ÁREA DO FORMULÁRIO ==================== -->
+            <Border Style="{StaticResource EstiloBorda}">
+
+                <VerticalStackLayout>
+
+                    <!-- Título -->
+                    <Label Text="Locatário" Style="{StaticResource LabelTitulo}"/>
+
+                    <!-- Campo Nome -->
+                    <Entry Text="{Binding Usuario.Nome}"
+                       Placeholder="Nome"
+                       Style="{StaticResource EstiloEntry}"/>
+
+                    <!-- Campo Email -->
+                    <Entry Text="{Binding Usuario.Email}"
+                       Placeholder="E-mail"
+                        Style="{StaticResource EstiloEntry}"/>
+
+                    <!-- Campo CPF -->
+                    <Entry Text="{Binding Usuario.CPF}"
+                       Placeholder="CPF"
+                        Style="{StaticResource EstiloEntry}"/>
+
+                    <!-- Campo Endereço -->
+                    <Entry Text="{Binding Usuario.Endereco}"
+                       Placeholder="Endereço"
+                        Style="{StaticResource EstiloEntry}"/>
+
+                    <!-- CheckBox termos -->
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding AceitouTermos}" VerticalOptions="Center" />
+                        <Label Text="Aceito os termos de uso" Style="{StaticResource LabelNormal}" />
+                    </StackLayout>
+
+                    <!-- CheckBox não sou robô -->
+                    <StackLayout Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding NaoSouRobo}" VerticalOptions="Center" />
+                        <Label Text="Não sou um robô" Style="{StaticResource LabelNormal}" />
+                    </StackLayout>
+
+                    <!-- Botão de cadastro -->
+                    <Button Text="Cadastrar" Command="{Binding CadastrarCommand}" Style="{StaticResource EstiloBotao}"/>
+                    
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- ==================== ÁREA DA DIREITA ==================== -->
+            <Border  Style="{StaticResource telaDireita}">
+
+
+                <!-- Ícone ou imagem -->
+                <Label Text="🔧"
+                   FontSize="120"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            </Border>
+
+        </HorizontalStackLayout>
+    </ScrollView>
+
+</ContentPage>
