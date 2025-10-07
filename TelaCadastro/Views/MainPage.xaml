@@ -4,69 +4,87 @@
              x:Class="TelaCadastro.MainPage"
               Title="Cadastro Locatário">
 
-
     <!-- Layout principal com Scroll -->
-    <ScrollView >
-        <HorizontalStackLayout Style="{StaticResource Espacamento}">
+ <ScrollView >
+     <Grid Padding="20">
 
-            <!-- ==================== ÁREA DO FORMULÁRIO ==================== -->
-            <Border Style="{StaticResource EstiloBorda}">
+         <!-- Grid principal com duas colunas: formulário e imagem -->
+         <Grid.ColumnDefinitions>
+             <ColumnDefinition Width="2*" />
+             <ColumnDefinition Width="*" />
+         </Grid.ColumnDefinitions>
 
-                <VerticalStackLayout>
+         <!-- ==================== ÁREA DO FORMULÁRIO ==================== -->
+         <Border Grid.Column="0" Style="{StaticResource EstiloBorda}">
+             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*">
 
-                    <!-- Título -->
-                    <Label Text="Locatário" Style="{StaticResource LabelTitulo}"/>
+                 <!-- Título -->
+                 <Label Text="Locatário" 
+         Style="{StaticResource LabelTitulo}" 
+         Grid.Row="0" />
 
-                    <!-- Campo Nome -->
-                    <Entry Text="{Binding Usuario.Nome}"
-                       Placeholder="Nome"
-                       Style="{StaticResource EstiloEntry}"/>
+                 <!-- Campo Nome -->
+                 <Entry Text="{Binding Usuario.Nome}"
+         Placeholder="Nome"
+         Style="{StaticResource EstiloEntry}"
+         Grid.Row="1" />
 
-                    <!-- Campo Email -->
-                    <Entry Text="{Binding Usuario.Email}"
-                       Placeholder="E-mail"
-                        Style="{StaticResource EstiloEntry}"/>
+                 <!-- Campo Email -->
+                 <Entry Text="{Binding Usuario.Email}"
+         Placeholder="E-mail"
+         Style="{StaticResource EstiloEntry}"
+         Grid.Row="2" />
 
-                    <!-- Campo CPF -->
-                    <Entry Text="{Binding Usuario.CPF}"
-                       Placeholder="CPF"
-                        Style="{StaticResource EstiloEntry}"/>
+                 <!-- Campo CPF -->
+                 <Entry Text="{Binding Usuario.CPF}"
+         Placeholder="CPF"
+         Style="{StaticResource EstiloEntry}"
+         Grid.Row="3" />
 
-                    <!-- Campo Endereço -->
-                    <Entry Text="{Binding Usuario.Endereco}"
-                       Placeholder="Endereço"
-                        Style="{StaticResource EstiloEntry}"/>
+                 <!-- Campo Endereço -->
+                 <Entry Text="{Binding Usuario.Endereco}"
+         Placeholder="Endereço"
+         Style="{StaticResource EstiloEntry}"
+         Grid.Row="4" />
 
-                    <!-- CheckBox termos -->
-                    <StackLayout Orientation="Horizontal">
-                        <CheckBox IsChecked="{Binding AceitouTermos}" VerticalOptions="Center" />
-                        <Label Text="Aceito os termos de uso" Style="{StaticResource LabelNormal}" />
-                    </StackLayout>
+                 <!-- CheckBox termos -->
+                 <Grid Grid.Row="5" ColumnDefinitions="Auto,*">
+                     <CheckBox IsChecked="{Binding AceitouTermos}" VerticalOptions="Center" />
+                     <Label Text="Aceito os termos de uso" 
+             Style="{StaticResource LabelNormal}" 
+             Grid.Column="1" 
+             VerticalOptions="Center"/>
+                 </Grid>
 
-                    <!-- CheckBox não sou robô -->
-                    <StackLayout Orientation="Horizontal">
-                        <CheckBox IsChecked="{Binding NaoSouRobo}" VerticalOptions="Center" />
-                        <Label Text="Não sou um robô" Style="{StaticResource LabelNormal}" />
-                    </StackLayout>
+                 <!-- CheckBox não sou robô -->
+                 <Grid Grid.Row="6" ColumnDefinitions="Auto,*">
+                     <CheckBox IsChecked="{Binding NaoSouRobo}" VerticalOptions="Center" />
+                     <Label Text="Não sou um robô" 
+             Style="{StaticResource LabelNormal}" 
+             Grid.Column="1" 
+             VerticalOptions="Center"/>
+                 </Grid>
 
-                    <!-- Botão de cadastro -->
-                    <Button Text="Cadastrar" Command="{Binding CadastrarCommand}" Style="{StaticResource EstiloBotao}"/>
-                    
-                </VerticalStackLayout>
-            </Border>
+                 <!-- Botão de cadastro -->
+                 <Button Text="Cadastrar"
+          Command="{Binding CadastrarCommand}"
+          Style="{StaticResource EstiloBotao}"
+          Grid.Row="7" />
+             </Grid>
+         </Border>
 
-            <!-- ==================== ÁREA DA DIREITA ==================== -->
-            <Border  Style="{StaticResource telaDireita}">
+         <!-- ==================== ÁREA DA DIREITA ==================== -->
+         <Border Grid.Column="1" Style="{StaticResource telaDireita}">
+             <Grid>
+                 <Label Text="🔧"
+         FontSize="120"
+         HorizontalOptions="Center"
+         VerticalOptions="Center"/>
+             </Grid>
+         </Border>
 
+     </Grid>
 
-                <!-- Ícone ou imagem -->
-                <Label Text="🔧"
-                   FontSize="120"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
-            </Border>
-
-        </HorizontalStackLayout>
-    </ScrollView>
+ </ScrollView>
 
 </ContentPage>
